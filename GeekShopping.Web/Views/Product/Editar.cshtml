@@ -1,0 +1,31 @@
+﻿@model ProductModel
+@{
+    ViewData["title"] = "Editar";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Edição</h2>
+        </div>
+        <form asp-action="Editar">
+            <div class="card-body">
+                <div class="d-flex gap-2 mb-2">
+                    <input asp-for="Name" class="form-control" placeholder="Nome"  />
+                    <input asp-for="CategoryName" class="form-control" placeholder="Categoria"  />
+                    <input asp-for="Price" class="form-control" placeholder="Preço"  />
+                </div>
+                <div class="mb-2">
+                    <input asp-for="ImageUrl" class="form-control" placeholder="Imagem" />
+                </div>
+                <div class="mb-2">
+                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Descrição"></textarea>
+                </div>
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <a asp-action="Index" class="btn btn-outline-secondary me-2">Voltar</a>
+                <button class="btn btn-primary">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>

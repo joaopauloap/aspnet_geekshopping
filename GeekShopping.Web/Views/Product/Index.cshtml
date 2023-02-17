@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProductModel>
+@{
+    ViewData["title"] = "Produtos";
+}
+
+<div class="container text-center">
+
+    <div class="d-flex gap-4 mb-4">
+        <h2>Produtos da loja</h2>
+        <a asp-action="Cadastrar" class="btn btn-success rounded-pill ">Cadastrar</a>
+    </div>
+
+    <table class="table">
+        <thead>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th></th>
+        </thead>
+
+        @foreach (ProductModel product in Model)
+        {
+            <tr>
+                <td><img src="@product.ImageUrl" height="64" width="64"/></td>
+                <td class="align-middle">@product.Name</td>
+                <td class="align-middle">@product.CategoryName</td>
+                <td class="align-middle">@product.Price.ToString("C")</td>
+                <td class="align-middle">@product.Description</td>
+                <td class="align-middle">
+                    <a asp-action="Editar" asp-route-id="@product.Id" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-action="Excluir" asp-route-id="@product.Id" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
